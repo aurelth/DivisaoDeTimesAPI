@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DivisaoDeTimesAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eeee1f21f2ff9859c0e241ed062e7a41499cd706")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ae5a1e66efdb6aa62a3a67dd5d6896a4c80a68c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DivisaoDeTimesAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DivisaoDeTimesAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
