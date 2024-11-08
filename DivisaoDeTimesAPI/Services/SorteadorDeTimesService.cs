@@ -1,5 +1,8 @@
 ﻿using DivisaoDeTimesAPI.Models;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace DivisaoDeTimesAPI.Services
 {
@@ -34,6 +37,8 @@ namespace DivisaoDeTimesAPI.Services
             // Verificar se o número de jogadores excedentes é par ou ímpar
             if (numExcedente > 0)
             {
+                var random = new Random();
+
                 if (numExcedente % 2 == 0)
                 {
                     // Número par de excedentes: Dividir igualmente entre os times
@@ -47,14 +52,16 @@ namespace DivisaoDeTimesAPI.Services
                 }
                 else
                 {
-                    // Número ímpar de excedentes: Um time terá um jogador a mais
-                    var random = new Random();
-                    foreach (var jogador in excedente)
+                    // Número ímpar de excedentes: Um time terá um jogador a mais, escolhido aleatoriamente
+                    var timeComJogadorExtra = random.Next(2) == 0 ? time1 : time2;
+                    var outroTime = timeComJogadorExtra == time1 ? time2 : time1;
+
+                    for (int i = 0; i < numExcedente; i++)
                     {
-                        if (random.Next(2) == 0 && time1.Jogadores.Count <= time2.Jogadores.Count)
-                            time1.Jogadores.Add(jogador);
+                        if (i < numExcedente / 2 + 1)
+                            timeComJogadorExtra.Jogadores.Add(excedente[i]);
                         else
-                            time2.Jogadores.Add(jogador);
+                            outroTime.Jogadores.Add(excedente[i]);
                     }
                 }
             }
